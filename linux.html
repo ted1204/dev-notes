@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linux - DevNotes</title>
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
         code { font-family: 'JetBrains Mono', monospace; }
+        .markdown-content h1 { font-size: 1.5rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .markdown-content h2 { font-size: 1.25rem; font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .markdown-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .markdown-content p { margin-bottom: 1rem; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen">
@@ -21,7 +27,7 @@
                 Tool
             </div>
             <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 mb-4">Linux</h1>
-            <p class="text-gray-500 text-sm">Last updated: 2026/3/30</p>
+            <p class="text-gray-500 text-sm">Last updated: 2026/4/10</p>
         </header>
 
         <main>
@@ -31,13 +37,13 @@
           <div class="bg-gray-900 rounded-lg p-4 mb-4 font-mono text-sm text-gray-100 overflow-x-auto">
             <code>du -sh --max-depth=1 . | sort -rh</code>
           </div>
-          <div class="prose prose-sm max-w-none text-gray-600 whitespace-pre-wrap">
-            du: disk usage
--sh: summerize the information in human readable form
---max-depth=1: show information in less than or equal to 1 depth
-. : current folder is the target folder
-| : pipe command
-sort -rh: sort the information in reverse order (biggest to smallest) and in human readable form
+          <div class="prose prose-sm max-w-none text-gray-600 markdown-content">
+            `du`: disk usage
+- `-sh`: summerize the information in human readable form
+- `--max-depth=1`: show information in less than or equal to 1 depth
+- `.`: current folder is the target folder
+- `|`: pipe command
+- `sort -rh`: sort the information in reverse order (biggest to smallest) and in human readable form
           </div>
         </div>
       
@@ -47,6 +53,11 @@ sort -rh: sort the information in reverse order (biggest to smallest) and in hum
             Generated with DevNotes Deployer
         </footer>
     </div>
+    <script>
+        document.querySelectorAll('.markdown-content').forEach(el => {
+            el.innerHTML = marked.parse(el.textContent.trim());
+        });
+    </script>
 </body>
 </html>
   
