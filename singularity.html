@@ -31,7 +31,7 @@
           <div class="bg-gray-900 rounded-lg p-4 mb-4 font-mono text-sm text-gray-100 overflow-x-auto">
             <code>singularity run --nv --bind /work/ted1204nchc:/work/ted1204nchc  sifs/nemo_25.11.01.sif </code>
           </div>
-          <div class="prose prose-sm max-w-none text-gray-600">
+          <div class="prose prose-sm max-w-none text-gray-600 whitespace-pre-wrap">
             run: run a .sif file
 --nv: expose Nvidia gpu to Singularity container
 --bind /path/to/A/in/host:/path/to/B/in/singularity: mount the directory of path A in host to path B in Singularity container
@@ -43,7 +43,7 @@
           <div class="bg-gray-900 rounded-lg p-4 mb-4 font-mono text-sm text-gray-100 overflow-x-auto">
             <code>singularity pull docker://nvcr.io/nvidia/pytorch:25.09-py3</code>
           </div>
-          <div class="prose prose-sm max-w-none text-gray-600">
+          <div class="prose prose-sm max-w-none text-gray-600 whitespace-pre-wrap">
             pull: pull an image in Internet
 docker://: it is the prefix that tells Singularity to pull a Docker image, and therefore Singularity will automatically tranform it into a .sif file that Singularity uses.
           </div>
