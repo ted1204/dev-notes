@@ -13,11 +13,11 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         code { font-family: 'JetBrains Mono', monospace; }
-        .markdown-content h1 { font-size: 1.5rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-        .markdown-content h2 { font-size: 1.25rem; font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.5rem; }
-        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
-        .markdown-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
-        .markdown-content p { margin-bottom: 1rem; }
+        /* Tighten up markdown lists */
+        .markdown-content ul, .markdown-content ol { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+        .markdown-content li { margin-top: 0.25rem !important; margin-bottom: 0.25rem !important; }
+        .markdown-content p { margin-bottom: 0.75rem !important; }
+        .markdown-content code { background: #f3f4f6; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen">
@@ -37,15 +37,13 @@
           <div class="bg-gray-900 rounded-lg p-4 mb-4 font-mono text-sm text-gray-100 overflow-x-auto">
             <code>du -sh --max-depth=1 . | sort -rh</code>
           </div>
-          <div class="prose prose-sm max-w-none text-gray-600 markdown-content">
-            `du`: disk usage
+          <div class="prose prose-sm max-w-none text-gray-600 markdown-content">`du`: disk usage
 
 - `-sh`: summerize the information in human readable form
 - `--max-depth=1`: show information in less than or equal to 1 depth
 - `.`: current folder is the target folder
 - `|`: pipe command
-- `sort -rh`: sort the information in reverse order (biggest to smallest) and in human readable form
-          </div>
+- `sort -rh`: sort the information in reverse order (biggest to smallest) and in human readable form</div>
         </div>
       
         </main>
@@ -55,9 +53,13 @@
         </footer>
     </div>
     <script>
+        marked.setOptions({
+            breaks: true,
+            gfm: true
+        });
         document.querySelectorAll('.markdown-content').forEach(el => {
-            const rawContent = el.innerHTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
-            el.innerHTML = marked.parse(rawContent.trim());
+            const markdown = el.textContent.trim();
+            el.innerHTML = marked.parse(markdown);
         });
     </script>
 </body>
