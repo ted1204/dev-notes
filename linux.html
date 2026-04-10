@@ -39,6 +39,7 @@
           </div>
           <div class="prose prose-sm max-w-none text-gray-600 markdown-content">
             `du`: disk usage
+
 - `-sh`: summerize the information in human readable form
 - `--max-depth=1`: show information in less than or equal to 1 depth
 - `.`: current folder is the target folder
@@ -55,7 +56,8 @@
     </div>
     <script>
         document.querySelectorAll('.markdown-content').forEach(el => {
-            el.innerHTML = marked.parse(el.textContent.trim());
+            const rawContent = el.innerHTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+            el.innerHTML = marked.parse(rawContent.trim());
         });
     </script>
 </body>
