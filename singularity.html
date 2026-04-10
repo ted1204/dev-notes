@@ -33,8 +33,8 @@
           </div>
           <div class="prose prose-sm max-w-none text-gray-600">
             run: run a .sif file
---nv: expose Nvidia gpu to Singularity container
---bind /path/to/A/in/host:/path/to/B/in/singularity: mount the directory of path A in host to path B in Singularity container
+- --nv: expose Nvidia gpu to Singularity container
+- --bind /path/to/A/in/host:/path/to/B/in/singularity: mount the directory of path A in host to path B in Singularity container
           </div>
         </div>
       
@@ -45,7 +45,7 @@
           </div>
           <div class="prose prose-sm max-w-none text-gray-600">
             pull: pull an image in Internet
-docker://: it is the prefix that tells Singularity to pull a Docker image, and therefore Singularity will automatically tranform it into a .sif file that Singularity uses.
+- docker://: it is the prefix that tells Singularity to pull a Docker image, and therefore Singularity will automatically tranform it into a .sif file that Singularity uses.
           </div>
         </div>
       
