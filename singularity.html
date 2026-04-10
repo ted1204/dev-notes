@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singularity - DevNotes</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        code { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+    <div class="max-w-3xl mx-auto px-6 py-12">
+        <header class="mb-12">
+            <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest rounded-full mb-4">
+                Tool
+            </div>
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 mb-4">Singularity</h1>
+            <p class="text-gray-500 text-sm">Last updated: 2026/4/10</p>
+        </header>
+
+        <main>
+            
+        <div class="mb-8 p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Command</h3>
+          <div class="bg-gray-900 rounded-lg p-4 mb-4 font-mono text-sm text-gray-100 overflow-x-auto">
+            <code>singularity run --nv --bind /work/ted1204nchc:/work/ted1204nchc  sifs/nemo_25.11.01.sif </code>
+          </div>
+          <div class="prose prose-sm max-w-none text-gray-600">
+            run: run a .sif file
+--nv: expose Nvidia gpu to Singularity container
+--bind /path/to/A/in/host:/path/to/B/in/singularity: mount the directory of path A in host to path B in Singularity container
+          </div>
+        </div>
+      
+        <div class="mb-8 p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Command</h3>
+          <div class="bg-gray-900 rounded-lg p-4 mb-4 font-mono text-sm text-gray-100 overflow-x-auto">
+            <code>singularity pull docker://nvcr.io/nvidia/pytorch:25.09-py3</code>
+          </div>
+          <div class="prose prose-sm max-w-none text-gray-600">
+            pull: pull an image in Internet
+docker://: it is the prefix that tells Singularity to pull a Docker image, and therefore Singularity will automatically tranform it into a .sif file that Singularity uses.
+          </div>
+        </div>
+      
+        </main>
+
+        <footer class="mt-20 pt-8 border-t border-gray-200 text-center text-gray-400 text-xs">
+            Generated with DevNotes Deployer
+        </footer>
+    </div>
+</body>
+</html>
+  
