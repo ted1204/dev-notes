@@ -41,7 +41,7 @@
 -o: output format
 jsonpath: output the specific information of the json path
 '{.data.HARBOR_ADMIN_PASSWORD}': the path of the harbor admin password section in the 'harbor-admin' secret
-| : pipe command
+|: pipe command
 base64 -d: decrypt the base64-encrpyted information we got
 ; echo: after the previous command finished, echo the output
 </div>
